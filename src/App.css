@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-todo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.day-picker {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+}
