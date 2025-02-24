@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { v4 as uuidv4 } from 'uuid';
 
 let CreateAccount = () => {
 
@@ -12,7 +12,6 @@ let CreateAccount = () => {
     let [password,setPassword] = useState("");
     let [confirmPassword,setConfirmPassword] = useState("");
     let [email,setEmail] = useState("");
-
 
     let createAccount = () => {
 
@@ -33,7 +32,7 @@ let CreateAccount = () => {
             return;
         }
 
-        let newUser = {firstName,lastName,username,password,email,todos: []};
+        let newUser = {id : uuidv4(),firstName,lastName,username,password,email,todos: []};
         let updatedUsers = [...users,newUser];
         localStorage.setItem("users",JSON.stringify(updatedUsers));
 

@@ -1,76 +1,35 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TodosContext } from "../context/TodosContext";
+
 
 let CreateTodo = () => {
 
     let [title, setTitle] = useState("");
     let [desc, setDesc] = useState("");
-    let [days, setDays] = useState("");
-    let [showDayPicker, setShowDayPicker] = useState(false);
+    let [today, setToday] = useState(true);
 
-    let handle = (e) => {
+    const saveTodo = useContext(TodosContext);
 
-        if (e.target.value == "2") {
-            setShowDayPicker(true)
-        } else {
-            setShowDayPicker(false)
-        }
-
+    let handleCreate = () => {
+        saveTodo({title,desc,today});
     }
-
 
 
     return (
         <div className="create-todo">
-            <input type="text" placeholder="Title" />
-            <input type="text" placeholder="Description" />
+            <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" placeholder="Description" onChange={(e) => setDesc(e.target.value)} />
             <div className="radio-btns">
                 <div>
-                    <label htmlFor="">Only Today</label>
-                    <input type="radio" name="1" value="1" onChange={(e) => handle(e)} defaultChecked />
+                    <label htmlFor="day">Today</label>
+                    <input type="radio" name="day" value="1" onChange={(e) => setToday(true)} defaultChecked />
                 </div>
                 <div>
-                    <label htmlFor="">Several Days</label>
-                    <input type="radio" name="1" value="2" onChange={(e) => handle(e)} />
-                </div>
-                <div>
-                    <label htmlFor="">Every day</label>
-                    <input type="radio" name="1" value="3" onChange={(e) => handle(e)} />
+                    <label htmlFor="day">Tomorrow</label>
+                    <input type="radio" name="day" value="2" onChange={(e) => setToday(false)} />
                 </div>
             </div>
-            {showDayPicker &&
-                <div className="day-picker">
-                    <div className="day">
-                        <label htmlFor="">M</label>
-                        <input type="checkbox" />
-                    </div>
-                    <div className="day">
-                        <label htmlFor="">T</label>
-                        <input type="checkbox" />
-                    </div>
-                    <div className="day">
-                        <label htmlFor="">W</label>
-                        <input type="checkbox" />
-                    </div>
-                    <div className="day">
-                        <label htmlFor="">T</label>
-                        <input type="checkbox" />
-                    </div>
-                    <div className="day">
-                        <label htmlFor="">F</label>
-                        <input type="checkbox" />
-                    </div>
-                    <div className="day">
-                        <label htmlFor="">S</label>
-                        <input type="checkbox" />
-                    </div>
-                    <div className="day">
-                        <label htmlFor="">S</label>
-                        <input type="checkbox" />
-                    </div>
-
-                </div>}
-
-            <button>Create</button>
+            <button onClick={handleCreate}>Create</button>
         </div>
     )
 }
