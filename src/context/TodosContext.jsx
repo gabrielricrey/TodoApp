@@ -10,6 +10,12 @@ export const TodosContextProvider = ({ children }) => {
         setTodos([...todos, todo]);
     }
 
+    let removeTodo = (i) => {
+        let list = [...todos];
+        list.splice(i,1);
+        setTodos(list);
+    }
+
     useEffect(() => {
 
         let allUsers = JSON.parse(localStorage.getItem("users"));
@@ -20,7 +26,7 @@ export const TodosContextProvider = ({ children }) => {
     }, [todos])
 
     return (
-        <TodosContext.Provider value={saveTodo}>
+        <TodosContext.Provider value={{saveTodo, todos, setTodos, removeTodo}}>
             {children}
         </TodosContext.Provider>
     );

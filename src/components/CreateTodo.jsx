@@ -8,17 +8,24 @@ let CreateTodo = () => {
     let [desc, setDesc] = useState("");
     let [today, setToday] = useState(true);
 
-    const saveTodo = useContext(TodosContext);
+    const {saveTodo} = useContext(TodosContext);
 
     let handleCreate = () => {
         saveTodo({title,desc,today});
+        clearInputs();
+    }
+
+    let clearInputs = () => {
+        setTitle("");
+        setDesc("");
+        setToday(true)
     }
 
 
     return (
         <div className="create-todo">
-            <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-            <input type="text" placeholder="Description" onChange={(e) => setDesc(e.target.value)} />
+            <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" placeholder="Description" value={desc} onChange={(e) => setDesc(e.target.value)} />
             <div className="radio-btns">
                 <div>
                     <label htmlFor="day">Today</label>

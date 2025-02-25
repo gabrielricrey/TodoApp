@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CreateTodo from "../components/CreateTodo"; 
+import CreateTodo from "../components/CreateTodo";
+import { TodosContextProvider } from "../context/TodosContext";
+import TodosList from "../components/TodosList";
 
 let StartPage = () => {
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        if(!sessionStorage.getItem("user")) {
+        if (!sessionStorage.getItem("user")) {
             navigate("/")
         }
     }, [])
@@ -17,12 +19,16 @@ let StartPage = () => {
         navigate("/")
     }
 
-    return(
-        <>
-            <h2>StartPage!</h2>
-            <button onClick={signOut}>Signout</button>
-            <CreateTodo/>
-        </>
+    return (
+        <div className="startpage">
+            <TodosContextProvider>
+                <nav>
+                    <button onClick={signOut}>Signout</button>
+                </nav>
+                <CreateTodo />
+                <TodosList />
+            </TodosContextProvider>
+        </div>
     )
 }
 

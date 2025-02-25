@@ -7,10 +7,8 @@ import { TodosContextProvider } from './context/TodosContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <TodosContextProvider>
       <Router>
         <App />
       </Router>
-    </TodosContextProvider>
   </StrictMode>,
 )
