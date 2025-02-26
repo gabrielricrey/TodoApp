@@ -4,7 +4,10 @@ export const TodosContext = createContext();
 
 export const TodosContextProvider = ({ children }) => {
 
-    let [todos, setTodos] = useState((JSON.parse(sessionStorage.getItem("user"))).todos);
+    const storedUser = JSON.parse(localStorage.getItem("users"))?.find(user => user.id === JSON.parse(sessionStorage.getItem("user")).id);
+
+    const [todos, setTodos] = useState(storedUser?.todos || []);
+    const [editMode, setEditMode] = useState(false);
 
     let saveTodo = (todo) => {
         setTodos([...todos, todo]);
@@ -14,6 +17,10 @@ export const TodosContextProvider = ({ children }) => {
         let list = [...todos];
         list.splice(i,1);
         setTodos(list);
+    }
+
+    let editTodo = (i) => {
+
     }
 
     useEffect(() => {
@@ -26,7 +33,7 @@ export const TodosContextProvider = ({ children }) => {
     }, [todos])
 
     return (
-        <TodosContext.Provider value={{saveTodo, todos, setTodos, removeTodo}}>
+        <TodosContext.Provider value={{saveTodo, todos, setTodos, removeTodo, editTodo, editMode,setEditMode}}>
             {children}
         </TodosContext.Provider>
     );

@@ -68,3 +68,48 @@ ul {
   display: flex;
   gap: 10px;
 }
+
+.create-todo {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  padding: 1rem;
+  border-radius: 10px;
+  align-items: center;
+  position: relative;
+}
+
+.todo-input {
+  padding: .5rem;
+}
+
+.create-btn {
+  padding: .5rem;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.exit-create-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.todo-list {
+  border: 1px solid black;
+  position: relative;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.open-create-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.hide {
+  display: none;
+}
+

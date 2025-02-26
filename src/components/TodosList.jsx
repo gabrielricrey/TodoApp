@@ -1,21 +1,28 @@
-import { useContext } from "react"
+import { useState, useContext } from "react"
 import { TodosContext } from "../context/TodosContext"
 import { Link } from "react-router-dom"
+import CreateTodo from "../components/CreateTodo";
 import Todo from "./Todo"
 
 let TodosList = () => {
 
-    let {todos, setTodos} = useContext(TodosContext)
+    let { todos, setTodos } = useContext(TodosContext)
+    let [showCreate, setShowCreate] = useState(false);
 
-    return(
-        <>
-        <h2>TodosList</h2>
-        <ul>
+
+    return (
+        <div className="todo-list">
             {
-                todos.map((todo,i) => <Todo todo={todo} index={i} key={i}/>)
+                showCreate && <CreateTodo setShowCreate={setShowCreate}/>
             }
-        </ul>
-        </>
+            <button className="open-create-btn" onClick={() => setShowCreate(true)}>+</button>
+            <h2>Todos</h2>
+            <ul>
+                {
+                    todos.map((todo, i) => <Todo todo={todo} index={i} setShowCreate={setShowCreate} key={i} />)
+                }
+            </ul>
+        </div>
     )
 }
 

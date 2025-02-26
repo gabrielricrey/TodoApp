@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CreateTodo from "../components/CreateTodo";
 import { TodosContextProvider } from "../context/TodosContext";
 import TodosList from "../components/TodosList";
 
@@ -25,7 +24,6 @@ let StartPage = () => {
                 <nav>
                     <button onClick={signOut}>Signout</button>
                 </nav>
-                <CreateTodo />
                 <TodosList />
             </TodosContextProvider>
         </div>
