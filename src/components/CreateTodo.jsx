@@ -1,49 +1,46 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { TodosContext } from "../context/TodosContext";
 
 
-let CreateTodo = ({ setShowCreate }) => {
+let CreateTodo = ({ setShowCreate, setShow }) => {
 
     let [title, setTitle] = useState("");
     let [desc, setDesc] = useState("");
-    let [today, setToday] = useState(true);
 
-    const { saveTodo, editMode, setEditMode } = useContext(TodosContext);
+    const { todos, editingTodo, saveTodo, removeTodo, editMode, setEditMode, setEditingTodo } = useContext(TodosContext);
 
     let handleCreate = () => {
-        saveTodo({ title, desc, today });
+        saveTodo({ title, desc});
         clearInputs();
     }
 
     let clearInputs = () => {
         setTitle("");
         setDesc("");
-        setToday(true)
     }
+
+    useEffect(() => {
+        if(editingTodo !== "") {
+            setTitle(todos[editingTodo].title)
+            setDesc(todos[editingTodo].desc)
+        }
+    }, [editingTodo])
+
 
 
     return (
         <div className="create-todo">
-            <button className="exit-create-btn" onClick={() => {setShowCreate(false); setEditMode(false)}}>X</button>
+            <button className="exit-btn" onClick={() => { setShowCreate(false); setEditMode(false); clearInputs(); setEditingTodo(""); setShow(true) }}></button>
             <input type="text" className="todo-input" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-            <input type="text" className="todo-input" placeholder="Description" value={desc} onChange={(e) => setDesc(e.target.value)} />
-            <div className="radio-btns">
-                <div>
-                    <label htmlFor="day">Today</label>
-                    <input type="radio" name="day" value="1" onChange={(e) => setToday(true)} defaultChecked />
-                </div>
-                <div>
-                    <label htmlFor="day">Tomorrow</label>
-                    <input type="radio" name="day" value="2" onChange={(e) => setToday(false)} />
-                </div>
-            </div>
+            <textarea name="" id="description" ></textarea>
+        
             {!editMode &&
-                <button className="create-btn" onClick={handleCreate}>Create</button>
+                <button id="save-btn" onClick={handleCreate}>Create</button>
             }
             {editMode &&
                 <>
-                    <button className="create-btn" onClick={handleCreate}>Delete</button>
-                    <button className="create-btn" onClick={handleCreate}>Save</button>
+                    <button className="create-btn" onClick={() => {removeTodo(editingTodo); clearInputs();setShowCreate(false)}}>Delete</button>
+                    <button id="save-btn" onClick={handleCreate}>Save</button>
                 </>
             }
         </div>

@@ -3,16 +3,14 @@ import { TodosContext } from "../context/TodosContext";
 
 let Todo = ({ todo, index, setShowCreate }) => {
 
-    let { removeTodo, editTodo, setEditMode } = useContext(TodosContext);
+    let { removeTodo, editTodo, setEditMode, setEditingTodo } = useContext(TodosContext);
+    console.log(index);
 
     return (
         <>
             <li className="todo">
-                <input type="checkbox" />
+                <button className="check"></button>
                 <p>{todo.title}</p>
-                <div className="buttons">
-                    <button onClick={() => {editTodo(index); setShowCreate(true); setEditMode(true)}}>Edit</button>
-                </div>
             </li>
         </>
     )

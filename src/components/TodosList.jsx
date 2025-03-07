@@ -8,20 +8,26 @@ let TodosList = () => {
 
     let { todos, setTodos } = useContext(TodosContext)
     let [showCreate, setShowCreate] = useState(false);
+    let [show,setShow] = useState(true);
 
 
     return (
-        <div className="todo-list">
+        <div className="todos-container">
             {
-                showCreate && <CreateTodo setShowCreate={setShowCreate}/>
+                showCreate && <CreateTodo setShowCreate={setShowCreate} setShow={setShow} />
             }
-            <button className="open-create-btn" onClick={() => setShowCreate(true)}>+</button>
-            <h2>Todos</h2>
-            <ul>
+            <h2 id="header">Todos</h2>
+            {
+                show &&
+                <>
+                <ul className="todo-list">
                 {
                     todos.map((todo, i) => <Todo todo={todo} index={i} setShowCreate={setShowCreate} key={i} />)
                 }
             </ul>
+            <button id="create-btn" onClick={() => {setShowCreate(true); setShow(false)}}>+</button>
+                </>
+            }
         </div>
     )
 }
