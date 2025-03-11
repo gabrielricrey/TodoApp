@@ -9,7 +9,8 @@ export const TodosContextProvider = ({ children }) => {
     const [editingTodo, setEditingTodo] = useState("");
     
 
-    let saveTodo = (todo) => {
+    let saveTodo = (title) => {
+        let todo = {title,done: false}
         setTodos([...todos, todo]);
     }
 
@@ -19,13 +20,31 @@ export const TodosContextProvider = ({ children }) => {
         setTodos(list);
     }
 
+    let updateTodo = (i,title) => {
+        let list = [...todos];
+        list[i].title = title;
+        setTodos(list);
+    }
+
+    let doneTodo = (i) => {
+        let list = [...todos];
+        list[i].done = true;
+        setTodos(list);
+    }
+
+    let undoDone = (i) => {
+        let list = [...todos];
+        list[i].done = false;
+        setTodos(list);
+    }
+
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos));
 
     }, [todos])
 
     return (
-        <TodosContext.Provider value={{saveTodo, todos, setTodos, removeTodo, editMode,setEditMode, setEditingTodo, editingTodo}}>
+        <TodosContext.Provider value={{saveTodo, todos, setTodos, doneTodo, undoDone,removeTodo, updateTodo, editMode,setEditMode, setEditingTodo, editingTodo}}>
             {children}
         </TodosContext.Provider>
     );

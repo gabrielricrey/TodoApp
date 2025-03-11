@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  color: white;
 }
 
 body {
@@ -75,7 +74,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-radius: 50px;
+  border-radius: 10px;
   padding: .5rem;
   background-color: #0e376f;
   color: white;
@@ -84,6 +83,19 @@ button:hover {
   width: 323px;
   height: 57px;
   position: relative;
+}
+
+.done {
+  color: gray !important;
+  text-decoration: line-through;
+}
+
+.delete {
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 }
 
 #create-btn {
@@ -103,6 +115,14 @@ button:hover {
   border: none;
   position: absolute;
   left: 10px;
+}
+
+.bgcolor {
+  background-color: green;
+}
+
+.checkmark {
+  color: white;
 }
 
 .check:hover {
@@ -146,6 +166,7 @@ button:hover {
   outline: none;
   margin-bottom: 1rem;
   text-align: center;
+  color: white;
 
 }
 
@@ -177,6 +198,7 @@ button:hover {
   padding: .5rem;
   width: 100px;
   border-radius: 10px;
+  color: white;
 }
 
 .exit-create-btn {
