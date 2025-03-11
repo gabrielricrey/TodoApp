@@ -13,8 +13,12 @@ let TodosList = () => {
 
     return (
         <>
+            <div className="top">
                 <h2 id="header">Todos</h2>
+            </div>
+            <div className="bottom">
                 <button id="create-btn" onClick={() => { setShowCreate(true); setShow(false) }}>+</button>
+            </div>
 
 
 

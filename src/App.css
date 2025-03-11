@@ -25,6 +25,42 @@ button:hover {
   flex-direction: column;
 }
 
+.startpage {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 10rem;
+}
+
+.top {
+  width: 100%;
+  height: 10rem;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: #1957A4;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: 5rem;
+}
+
+.bottom {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 5rem;
+  background-color: #1957A4;
+  z-index: 10;
+}
+
 #header {
   text-transform: uppercase;
   font-size: 40px;
@@ -36,17 +72,23 @@ button:hover {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+
 }
 
-.startpage {
-  width: 100%;
+
+#create-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  background-color: #3aaf2d;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 50%;
+  top: .5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
+
 
 .container {
   height: 100vh;
@@ -62,29 +104,7 @@ button:hover {
 }
 
 
-.todo-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-30px);
-  z-index: -1;
-  margin-bottom: 5rem;
-}
 
-.todos-container {
-  position: relative;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 .todo {
   display: flex;
@@ -118,18 +138,6 @@ button:hover {
 
 }
 
-#create-btn {
-  width: 150px;
-  height: 50px;
-  border-radius: 50px;
-  border: none;
-  margin-top: 1rem;
-  background-color: #3aaf2d;
-  position: fixed;
-  bottom: 4rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
 .check {
   background-color: #05224A;
