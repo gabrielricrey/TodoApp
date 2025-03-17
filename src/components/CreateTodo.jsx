@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { TodosContext } from "../context/TodosContext";
 
 
-let CreateTodo = ({ setShowCreate, setShow }) => {
+let CreateTodo = ({ setShowCreate }) => {
 
     let [title, setTitle] = useState("");
 
@@ -28,7 +28,6 @@ let CreateTodo = ({ setShowCreate, setShow }) => {
         setEditMode(false);
         clearInputs();
         setEditingTodo("");
-        setShow(true);
     }
 
     let updateBtnClick = () => {
@@ -54,7 +53,7 @@ let CreateTodo = ({ setShowCreate, setShow }) => {
             <button className="exit-btn" onClick={exitBtnClick}></button>
             <input type="text" className="todo-input" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
             {!editMode &&
-                <button id="save-btn" onClick={handleCreate}>Create</button>
+                <button id="save-btn" onClick={handleCreate}>+</button>
             }
             {editMode &&
                 <>

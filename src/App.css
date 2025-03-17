@@ -157,32 +157,26 @@ button:hover {
   color: white;
 }
 
-.check:hover {
-  background-color: green;
-  transition: all 0.3s ease;
-}
-
-
 .create-todo {
   display: flex;
-  flex-direction: column;
   width: 100%;
   padding: 1rem;
   border-radius: 10px;
   align-items: center;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   background-color: #0e376f;
   width: 323px;
-  height: 260px;
+  flex-direction: row;
+  bottom: 1rem;
 }
 
 .exit-btn {
   background-color: #e47969;
   border-radius: 50%;
   border: none;
-  width: 35px;
-  height: 35px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   right: 0;
   top: 0;
@@ -191,14 +185,13 @@ button:hover {
 
 .todo-input {
   padding: .5rem;
-  background-color: #05224A;
+  background-color: #fff;
   border: none;
   border-radius: 10px;
   width: 80%;
   outline: none;
-  margin-bottom: 1rem;
   text-align: center;
-  color: white;
+  color: black;
   font-size: 16px;
 
 }
@@ -207,29 +200,15 @@ button:hover {
   cursor: pointer;
 }
 
-#description {
-  background-color: #05224A;
-  width: 80%;
-  border: none;
-  border-radius: 10px;
-  height: 150px;
-  outline: none;
-  margin-bottom: 1rem;
-  text-align: center;
-  padding: .5rem;
-}
-
 #save-btn {
-  width: 80px;
-  height: 50px;
+  width: 40px;
+  height: 20px;
   background-color: #40c96c;
   border-radius: 10px;
   border: none;
 }
 
 .create-btn {
-  padding: .5rem;
-  width: 100px;
   border-radius: 10px;
   color: white;
 }
