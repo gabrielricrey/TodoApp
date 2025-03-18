@@ -130,12 +130,13 @@ button:hover {
 .delete {
   position: absolute;
   right: 10px;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
-  background-color: #e47969;
-
+  color: #e47969;
+  font-size: 1.2rem;
+  background-color: #0e376f;
 }
 
 
@@ -148,6 +149,7 @@ button:hover {
   position: absolute;
   left: 10px;
 }
+
 
 .bgcolor {
   background-color: green;
@@ -196,8 +198,15 @@ button:hover {
 
 }
 
+
 .todo:hover {
   cursor: pointer;
+}
+
+#drag {
+  position: absolute;
+  right: .5rem;
+  color: #05224A;
 }
 
 #save-btn {

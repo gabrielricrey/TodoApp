@@ -27,7 +27,7 @@ let Todo = ({ title, id, done, index, setShowCreate }) => {
     }
 
     let doneBtnClick = (e) => {
-        setDone(!done)
+        setDone(!done1)
 
         e.stopPropagation(); 
 
@@ -41,10 +41,11 @@ let Todo = ({ title, id, done, index, setShowCreate }) => {
 
     return (
         <>
-            <li ref={setNodeRef} {...attributes} {...listeners} style={style} className="todo" onClick={handleClick}>
-                <button className={done ? "check bgcolor" : "check"} onClick={doneBtnClick}>{done1 && <p className="checkmark">&#10004;</p>}</button>
-                <p className={done ? "done" : ""}>{title}</p>
-                {done && <button className="delete" onClick={(e) => { e.stopPropagation(); removeTodo(index)}}>x</button>}
+            <li ref={setNodeRef} {...attributes} style={style} className="todo" onClick={handleClick}>
+                <button className={done1 ? "check bgcolor" : "check"} onClick={doneBtnClick}>{done1 && <p className="checkmark">&#10004;</p>}</button>
+                <p className={done1 ? "done" : ""}>{title}</p>
+                <i className="fa-solid fa-grip-lines" id="drag" {...listeners}></i>
+                {done1 && <button className="delete" onClick={(e) => { e.stopPropagation(); removeTodo(index)}}><i className="fa-solid fa-trash"></i></button>}
             </li>
         </>
     )
