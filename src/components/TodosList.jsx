@@ -47,7 +47,6 @@ let TodosList = () => {
 
                     {
                         todos
-                        .sort((a,b) => a.done - b.done)
                         .map((todo, i) => <Todo title={todo.title} id={todo.id} done={todo.done} index={i} setShowCreate={setShowCreate} key={todo.id} />)
                     }
                 </SortableContext>

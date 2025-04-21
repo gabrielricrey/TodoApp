@@ -77,15 +77,14 @@ button:hover {
 
 
 #create-btn {
-  width: 150px;
+  width: 50px;
   height: 50px;
-  border-radius: 50px;
+  border-radius: 25%;
   border: none;
   background-color: #3aaf2d;
   position: absolute;
   top: .5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: .5rem;
 }
 
 
@@ -162,7 +161,7 @@ button:hover {
 .create-todo {
   display: flex;
   width: 100%;
-  padding: 1rem;
+  padding: .5rem;
   border-radius: 10px;
   align-items: center;
   position: fixed;
@@ -175,7 +174,7 @@ button:hover {
 
 .exit-btn {
   background-color: #e47969;
-  border-radius: 50%;
+  border-radius: 25%;
   border: none;
   width: 15px;
   height: 15px;
@@ -211,14 +210,14 @@ button:hover {
 
 #save-btn {
   width: 40px;
-  height: 20px;
-  background-color: #40c96c;
-  border-radius: 10px;
+  height: 40px;
+  background-color: #3aaf2d;
+  border-radius: 25%;
   border: none;
 }
 
 .create-btn {
-  border-radius: 10px;
+  border-radius: 75%;
   color: white;
 }
 
