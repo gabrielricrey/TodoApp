@@ -49,16 +49,19 @@ let CreateTodo = ({ setShowCreate }) => {
 
 
     return (
+
         <div className="create-todo">
-            <button className="exit-btn" onClick={exitBtnClick}></button>
+            <button className="exit-btn" onClick={exitBtnClick}>x</button>
+
             <input type="text" className="todo-input" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
             {!editMode &&
                 <button id="save-btn" onClick={handleCreate}>+</button>
             }
             {editMode &&
                 <>
-                    <button className="create-btn" onClick={deleteBtnClick}>Delete</button>
                     <button id="save-btn" onClick={updateBtnClick}>Save</button>
+                    <button className="delete-btn" onClick={deleteBtnClick}>Delete</button>
+
                 </>
             }
         </div>

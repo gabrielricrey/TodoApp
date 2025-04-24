@@ -161,7 +161,7 @@ button:hover {
 .create-todo {
   display: flex;
   width: 100%;
-  padding: .5rem;
+  padding: 2rem;
   border-radius: 10px;
   align-items: center;
   position: fixed;
@@ -173,27 +173,32 @@ button:hover {
 }
 
 .exit-btn {
-  background-color: #e47969;
-  border-radius: 25%;
   border: none;
-  width: 15px;
-  height: 15px;
+  color: white;
+  font-size: 1.2rem;
+  width: 20px;
+  height: 20px;
   position: absolute;
   right: 0;
   top: 0;
-  transform: translate(50%, -50%);
+  border-radius: 5px;
+  background-color: #05224A;
+  margin-top: .5rem;
+  margin-right: .5rem;
+
 }
 
 .todo-input {
   padding: .5rem;
   background-color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   width: 80%;
   outline: none;
   text-align: center;
   color: black;
   font-size: 16px;
+  height: 40px;
 
 }
 
@@ -212,13 +217,18 @@ button:hover {
   width: 40px;
   height: 40px;
   background-color: #3aaf2d;
-  border-radius: 25%;
+  border-radius: 0 10px 10px 0;
   border: none;
 }
 
-.create-btn {
-  border-radius: 75%;
+.delete-btn {
+  width: 40px;
+  height: 40px;
   color: white;
+  background-color: #e47969;
+  border: none;
+  border-radius: 10px;
+  margin-left: .3rem;
 }
 
 .exit-create-btn {
@@ -238,3 +248,4 @@ button:hover {
 .hide {
   display: none;
 }
+
